@@ -29,18 +29,18 @@ void main() {
         'private': (
           VaticanCityPlates.private,
           VaticanCityThemes.private,
-          'C V 1 2 3 4 5',
+          'CV 12345',
         ),
-        'papal': (VaticanCityPlates.papal, VaticanCityThemes.papal, 'S C V 1'),
+        'papal': (VaticanCityPlates.papal, VaticanCityThemes.papal, 'SCV 1'),
         'government': (
           VaticanCityPlates.government,
           VaticanCityThemes.government,
-          'S C V 1 2 3 4 5',
+          'SCV 12345',
         ),
         'official': (
           VaticanCityPlates.official,
           VaticanCityThemes.official,
-          'S C V 6 7 8 B',
+          'SCV 678 B',
         ),
       };
 

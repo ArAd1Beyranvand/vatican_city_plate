@@ -1,11 +1,12 @@
+import 'dart:math';
+
 import 'package:flutter/widgets.dart' show EdgeInsets;
 import 'package:plate_alphabet/plate_alphabet.dart';
 import 'package:plate_core/plate_core.dart';
 
 import 'vatican_city_country.dart';
 
-/// One group of evenly pitched cells: [count] cells of the [alphabet] centred
-/// on [cx] at [pitch].
+/// One field of [count] cells of the [alphabet] centred on [cx] at [pitch].
 class _Run {
   const _Run(this.key, this.alphabet, this.count, this.cx, this.pitch);
 
@@ -88,19 +89,20 @@ abstract final class VaticanCityPlates {
     final List<PlateSlot> slots = <PlateSlot>[];
     final List<PlateTextGroup> groups = <PlateTextGroup>[];
     for (final _Run r in runs) {
-      groups.add(
-        PlateTextGroup(<int>[
-          for (int i = 0; i < r.count; i++) slots.length + i,
-        ], key: r.key),
-      );
-      slots.addAll(
-        plateRegister(
+      groups.add(PlateTextGroup(<int>[slots.length], key: r.key));
+      slots.add(
+        PlateSlot(
           alphabet: r.alphabet,
-          count: r.count,
-          left: r.cx - r.pitch * r.count / 2,
-          top: 0,
-          width: r.pitch,
-          height: _Layout.height,
+          box: PlateBox(
+            r.cx - r.pitch * r.count / 2,
+            0,
+            r.pitch * r.count,
+            _Layout.height,
+          ),
+          length: r.count,
+          spacing: r.count == 1
+              ? 0
+              : max(0, r.pitch - 0.6 * 0.72 * _Layout.height),
         ),
       );
     }
