@@ -4,10 +4,9 @@ import 'package:plate_core/plate_core.dart';
 
 import 'vatican_city_colors.dart';
 
-/// Black or red ink on the pale grey field. The frame is a light bevel in the
-/// artwork (white outside, `EBEBEB`, `CBCFCF` inwards over about 8 of 350
-/// px); it is drawn here as a thin ink frame of 2% of the height with a
-/// corner radius estimated at 5%, not measured.
+/// Black or red ink on the pale grey field. The artwork's light bevel frame
+/// is drawn as a thin ink frame; its 2% width and 5% corner radius are
+/// estimates.
 abstract final class VaticanCityThemes {
   static final PlateTheme private = _theme(VaticanCityColors.black);
   static final PlateTheme official = _theme(VaticanCityColors.black);

@@ -6,7 +6,6 @@ import 'package:plate_core/plate_core.dart';
 
 import 'vatican_city_country.dart';
 
-/// One field of [count] cells of the [alphabet] centred on [cx] at [pitch].
 class _Run {
   const _Run(this.key, this.alphabet, this.count, this.cx, this.pitch);
 
@@ -35,10 +34,8 @@ class _Run {
 /// at pitch 51.5 centred 347.6. Official `SCV 678B`: letters 92.1, 141.1,
 /// 190.9; digits 275.0, 328.4, 378.9 (pitch 52); `B` at 433.8.
 ///
-/// Field `DCE1E1`, ink `000000` / `ED1C24`, sampled. Not drawn: the
-/// Popemobile photographs, the international `V` oval (a rear sticker, not a
-/// plate), and older series. No diplomatic plate is implemented, so nothing
-/// Israel-specific exists here to refuse.
+/// Not drawn: the international `V` oval (a rear sticker, not a plate) and
+/// older series.
 abstract final class _Layout {
   static const double width = 520;
   static const double height = 110;
@@ -62,13 +59,9 @@ abstract final class _Layout {
   ];
 }
 
-/// The Vatican plates. Groups `prefix`, `number`, and `suffix` (official
-/// only).
-///
-/// [private] is `CV 00000` for residents; [papal] is the red `SCV 1`;
-/// [government] the red `SCV 00000` of cardinals and the Pope's other
-/// vehicles; [official] the black `SCV 000A` of State vehicles. The colours
-/// are the theme's.
+/// Groups are `prefix`, `number` and, on [official] only, `suffix`. [private]
+/// is `CV 00000`, [papal] `SCV 1`, [government] `SCV 00000`, [official]
+/// `SCV 000A`; colour is the theme's.
 abstract final class VaticanCityPlates {
   static final PlateSpec private = _spec('va.private', _Layout.private);
   static final PlateSpec papal = _spec('va.papal', _Layout.papal);
