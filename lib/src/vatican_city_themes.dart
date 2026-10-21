@@ -1,5 +1,4 @@
 import 'package:flutter/widgets.dart' show Color;
-
 import 'package:plate_core/plate_core.dart';
 
 import 'vatican_city_colors.dart';
