@@ -65,18 +65,10 @@ abstract final class _Layout {
 abstract final class VaticanCityPlates {
   static final PlateSpec private = _spec('va.private', _Layout.private);
   static final PlateSpec papal = _spec('va.papal', _Layout.papal);
-  static final PlateSpec government = _spec(
-    'va.government',
-    _Layout.government,
-  );
+  static final PlateSpec government = _spec('va.government', _Layout.government);
   static final PlateSpec official = _spec('va.official', _Layout.official);
 
-  static List<PlateSpec> get all => <PlateSpec>[
-    private,
-    papal,
-    government,
-    official,
-  ];
+  static List<PlateSpec> get all => <PlateSpec>[private, papal, government, official];
 
   static PlateSpec _spec(String id, List<_Run> runs) {
     final List<PlateSlot> slots = <PlateSlot>[];
@@ -86,16 +78,9 @@ abstract final class VaticanCityPlates {
       slots.add(
         PlateSlot(
           alphabet: r.alphabet,
-          box: PlateBox(
-            r.cx - r.pitch * r.count / 2,
-            0,
-            r.pitch * r.count,
-            _Layout.height,
-          ),
+          box: PlateBox(r.cx - r.pitch * r.count / 2, 0, r.pitch * r.count, _Layout.height),
           length: r.count,
-          spacing: r.count == 1
-              ? 0
-              : max(0, r.pitch - 0.6 * 0.72 * _Layout.height),
+          spacing: r.count == 1 ? 0 : max(0, r.pitch - 0.6 * 0.72 * _Layout.height),
         ),
       );
     }
@@ -104,10 +89,7 @@ abstract final class VaticanCityPlates {
       country: VaticanCityCountry.vatican_city,
       canvasWidth: _Layout.width,
       canvasHeight: _Layout.height,
-      panel: const PlatePanel(
-        box: PlateBox(0, 0, 0, 0),
-        padding: EdgeInsets.zero,
-      ),
+      panel: const PlatePanel(box: PlateBox(0, 0, 0, 0), padding: EdgeInsets.zero),
       noPanel: true,
       slots: slots,
       textGroups: groups,
