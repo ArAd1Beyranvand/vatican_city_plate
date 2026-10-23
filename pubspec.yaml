@@ -1,7 +1,7 @@
 name: vatican_city_plate
 description: "Vatican City's licence plates for the plate_core library: resident, papal, government and official plates, black or red on pale grey, with an advisory validator."
 version: 0.1.0
-publish_to: none
+repository: https://github.com/ArAd1Beyranvand/vatican_city_plate
 resolution: workspace
 
 environment:
