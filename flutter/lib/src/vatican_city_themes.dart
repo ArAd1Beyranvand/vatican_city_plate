@@ -16,7 +16,6 @@ abstract final class VaticanCityThemes {
 PlateTheme _theme(Color ink) => PlateTheme.monochrome(
   field: VaticanCityColors.field,
   ink: ink,
-  inactive: VaticanCityColors.inactive,
   borderWidthRatio: 0.02,
   plateRadiusRatio: 0.05,
 );

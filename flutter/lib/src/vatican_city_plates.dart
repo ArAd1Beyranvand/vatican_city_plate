@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/widgets.dart' show EdgeInsets;
 import 'package:plate_alphabet/plate_alphabet.dart';
 import 'package:plate_core/plate_core.dart';
@@ -37,8 +35,7 @@ class _Run {
 /// Not drawn: the international `V` oval (a rear sticker, not a plate) and
 /// older series.
 abstract final class _Layout {
-  static const double width = 520;
-  static const double height = 110;
+  static const double width = 520, height = 110;
 
   static const List<_Run> private = <_Run>[
     _Run('prefix', VaticanCityAlphabets.letters, 2, 125.85, 50),
@@ -80,9 +77,7 @@ abstract final class VaticanCityPlates {
 
   static PlateSpec _spec(String id, List<_Run> runs) {
     final List<PlateSlot> slots = <PlateSlot>[];
-    final List<PlateTextGroup> groups = <PlateTextGroup>[];
     for (final _Run r in runs) {
-      groups.add(PlateTextGroup(<int>[slots.length], key: r.key));
       slots.add(
         PlateSlot(
           alphabet: r.alphabet,
@@ -93,9 +88,8 @@ abstract final class VaticanCityPlates {
             _Layout.height,
           ),
           length: r.count,
-          spacing: r.count == 1
-              ? 0
-              : max(0, r.pitch - 0.6 * 0.72 * _Layout.height),
+          spacing: r.count == 1 ? 0 : plateRunSpacing(r.pitch, _Layout.height),
+          group: r.key,
         ),
       );
     }
@@ -110,7 +104,6 @@ abstract final class VaticanCityPlates {
       ),
       noPanel: true,
       slots: slots,
-      textGroups: groups,
     );
   }
 }

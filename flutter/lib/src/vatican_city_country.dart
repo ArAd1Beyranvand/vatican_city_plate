@@ -7,7 +7,6 @@ import 'vatican_city_colors.dart';
 abstract final class VaticanCityCountry {
   static const PlateCountry vatican_city = PlateCountry(
     code: 'va',
-    captionLines: <String>[],
     panelColor: VaticanCityColors.black,
     panelTextColor: VaticanCityColors.field,
   );
