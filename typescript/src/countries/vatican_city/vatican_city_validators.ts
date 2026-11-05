@@ -1,4 +1,4 @@
-import { GatedPlateValidator, type PlateEntry, type PlateValidation, invalid, valid } from '../../core/validators/plate_validator';
+import { GatedPlateValidator, type PlateEntry, type PlateValidation, invalid, valid } from 'plate_core/core/validators/plate_validator';
 
 /** Judges a Vatican plate: `CV` (resident) or `SCV` (State) followed by
  * digits, and on an official plate one trailing letter. Reports, never bars
